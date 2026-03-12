@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com"
+		/>
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin="anonymous"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<slot />
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				document.body.classList.add("loaded");
+			});
+		</script>
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--bg: #0f1012;
+		--text: #eceae6;
+		--muted: #9a978f;
+		--border: #2f3136;
+		--surface: #17191d;
+		--surface-elevated: #1f2228;
+		--accent: #f3b53f;
+		--accent-soft: #e3a536;
+		--success: #84c9a8;
+		--warning: #f3b53f;
+		--danger: #e88d8d;
+		--font-mono: "JetBrains Mono", monospace;
+		--font-ui: "Syne", sans-serif;
+		--radius-sm: 4px;
+		--radius-md: 8px;
+		--radius-lg: 12px;
+		--shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+		--shadow-md: 0 10px 24px rgba(0, 0, 0, 0.25);
+		--max-content-width: 1200px;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	html,
+	body {
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		background: var(--bg);
+		color: var(--text);
+		font-family: var(--font-mono);
+		font-size: 14px;
+		line-height: 1.6;
+		overflow-x: hidden;
+		opacity: 0;
+		transition: opacity 0.4s ease;
+	}
+
+	body.loaded {
+		opacity: 1;
+	}
+
+	h1,
+	h2,
+	h3 {
+		font-family: var(--font-ui);
+	}
+
+	* {
+		scrollbar-width: thin;
+		scrollbar-color: var(--border) var(--bg);
+	}
+
+	*::-webkit-scrollbar {
+		width: 4px;
+		height: 4px;
+	}
+
+	*::-webkit-scrollbar-track {
+		background: var(--bg);
+	}
+
+	*::-webkit-scrollbar-thumb {
+		background: var(--border);
+		border-radius: 999px;
+	}
+</style>
